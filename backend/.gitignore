@@ -1,0 +1,28 @@
+# Entorno virtual de Python
+.venv/
+venv/
+__pycache__/
+
+# Archivos compilados y de distribución de Python
+*.pyc
+*.egg-info/
+
+# Archivos de entorno (contienen secretos)
+.env
+*.env
+
+# Base de datos local de la aplicación
+data/
+
+# Logs generados por la aplicación
+logs/
+
+# Modelos de IA generados localmente y datos de calibración
+ai_resources/
+
+# Archivos de audio para pruebas y benchmarks
+benchmarks/audio_samples/
+tests/fixtures/
+
+# Cache de Pytest
+.pytest_cache/

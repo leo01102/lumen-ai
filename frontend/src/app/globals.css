@@ -1,0 +1,63 @@
+/* frontend/src/app/globals.css */
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- ESTILOS PERSONALIZADOS PARA SCROLLBAR --- */
+/* este bloque aplica los estilos a la barra de desplazamiento en toda la aplicación */
+
+/* para navegadores WebKit (Chrome, Safari, Edge, etc.) */
+::-webkit-scrollbar {
+  width: 10px; /* ancho de la scrollbar vertical */
+  height: 10px; /* altura de la scrollbar horizontal */
+}
+
+::-webkit-scrollbar-track {
+  /* el fondo de la pista de la scrollbar, un azul muy oscuro */
+  background: #0f0f1a;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  /* la barra de desplazamiento, con un color índigo profundo y menos saturado */
+  background-color: #4c3b8a;
+  border-radius: 10px;
+  /* un borde sutil para que la barra parezca flotar sobre la pista */
+  border: 2px solid #0f0f1a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* un color ligeramente más claro al pasar el mouse por encima */
+  background-color: #6251b2;
+}
+
+/* para Firefox */
+/* se definen los colores de la barra y la pista de forma más directa */
+html {
+  scrollbar-width: thin; /* 'auto', 'thin', o 'none' */
+  scrollbar-color: #4c3b8a #0f0f1a; /* color de la barra | color de la pista */
+}
