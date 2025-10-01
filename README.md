@@ -9,9 +9,7 @@ Este repositorio contiene una aplicación moderna y desacoplada, compuesta por u
 
 <br>
 
-<!-- ![GIF de la aplicación en funcionamiento](docs/images/demo.gif) -->
-
-_(Reemplazar con una captura de pantalla o GIF de la nueva demo)_
+![Demostración de la interfaz de Lumen](docs/images/screenshot.png)
 
 ---
 
