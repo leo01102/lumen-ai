@@ -1,25 +1,7 @@
-# Python
-__pycache__/
-*.pyc
-.env
-*.env
-.venv/
-venv/
-*.egg-info/
-
-# Pytest
-.pytest_cache/
-
-# OS
+# Archivos del Sistema Operativo
 .DS_Store
 Thumbs.db
 
-# Streamlit / logs
-*.log
-logs/
-
-# Datos de la aplicación
-data/
-
-# Modelos y datos de optimización
-ai_resources/
+# Configuraciones de Entornos de Desarrollo (IDE)
+.vscode/
+.idea/
