@@ -8,12 +8,12 @@ import {
   MicOff,
   Video,
   VideoOff,
-  MoreHorizontal,
   X,
   Settings,
   LoaderCircle,
   Square,
   MessageSquareText,
+  RotateCcw,
 } from "lucide-react";
 import {
   ResizableHandle,
@@ -60,6 +60,7 @@ interface VoiceChatDesktopLayoutProps {
   handleEndCall: () => void;
   handleStopAndProcess: () => void;
   setShowSettings: (show: boolean) => void;
+  restartRecording: () => void;
 }
 
 export default function VoiceChatDesktopLayout({
@@ -84,6 +85,7 @@ export default function VoiceChatDesktopLayout({
   handleEndCall,
   handleStopAndProcess,
   setShowSettings,
+  restartRecording,
 }: VoiceChatDesktopLayoutProps) {
   return (
     <ResizablePanelGroup direction="horizontal" className="w-full h-full">
@@ -243,9 +245,11 @@ export default function VoiceChatDesktopLayout({
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full w-12 h-12 text-gray-400 hover:text-white hover:bg-gray-700"
+                onClick={restartRecording}
+                disabled={!isUserSpeaking || isProcessing || isAISpeaking}
+                className="rounded-full w-12 h-12 text-gray-400 hover:text-white hover:bg-gray-700 disabled:opacity-50"
               >
-                <MoreHorizontal className="w-5 h-5" />
+                <RotateCcw className="w-5 h-5" />
               </Button>
               <Button
                 variant="ghost"
