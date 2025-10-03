@@ -26,6 +26,7 @@ export default function VoiceChatPage() {
     startUserSpeaking,
     stopUserSpeaking,
     processInteraction,
+    restartRecording,
   } = useLumenChat();
 
   // estados locales de la ui
@@ -137,6 +138,7 @@ export default function VoiceChatPage() {
           handleEndCall={handleEndCall}
           handleStopAndProcess={handleStopAndProcess}
           setShowSettings={setShowSettings}
+          restartRecording={restartRecording}
         />
       ) : (
         <VoiceChatDesktopLayout
@@ -161,6 +163,7 @@ export default function VoiceChatPage() {
           handleEndCall={handleEndCall}
           handleStopAndProcess={handleStopAndProcess}
           setShowSettings={setShowSettings}
+          restartRecording={restartRecording}
         />
       )}
 

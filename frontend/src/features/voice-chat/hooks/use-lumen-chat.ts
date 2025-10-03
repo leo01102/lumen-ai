@@ -173,28 +173,35 @@ export const useLumenChat = () => {
 
   const stopRecording = useCallback(() => {
     return new Promise<Blob>((resolve) => {
-      if (
-        mediaRecorderRef.current &&
-        mediaRecorderRef.current.state === "recording"
-      ) {
-        mediaRecorderRef.current.onstop = () => {
+      const recorder = mediaRecorderRef.current; // capturar la instancia actual
+
+      if (recorder && recorder.state === "recording") {
+        // asignar el handler de 'onstop' a la instancia capturada
+        recorder.onstop = () => {
           const audioBlob = new Blob(audioChunksRef.current, {
             type: "audio/webm",
           });
           audioChunksRef.current = [];
-          const stream = mediaRecorderRef.current?.stream;
+          // usar el stream de la instancia capturada para la limpieza
+          const stream = recorder.stream;
           if (stream) {
             stream.getTracks().forEach((track) => track.stop());
           }
           resolve(audioBlob);
         };
-        mediaRecorderRef.current.stop();
+
+        recorder.stop();
         setIsUserSpeaking(false);
       } else {
         resolve(new Blob());
       }
     });
   }, []);
+
+  const restartRecording = useCallback(async () => {
+    await stopRecording();
+    startRecording();
+  }, [stopRecording, startRecording]);
 
   return {
     isAISpeaking,
@@ -209,5 +216,6 @@ export const useLumenChat = () => {
     startUserSpeaking: startRecording,
     stopUserSpeaking: stopRecording,
     processInteraction,
+    restartRecording,
   };
 };

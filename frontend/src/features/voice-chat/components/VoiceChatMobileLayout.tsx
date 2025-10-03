@@ -13,6 +13,7 @@ import {
   LoaderCircle,
   Square,
   MessageSquareText,
+  RotateCcw,
 } from "lucide-react";
 import {
   Accordion,
@@ -54,6 +55,7 @@ interface VoiceChatMobileLayoutProps {
   handleEndCall: () => void;
   handleStopAndProcess: () => void;
   setShowSettings: (show: boolean) => void;
+  restartRecording: () => void;
 }
 
 export default function VoiceChatMobileLayout({
@@ -78,6 +80,7 @@ export default function VoiceChatMobileLayout({
   handleEndCall,
   handleStopAndProcess,
   setShowSettings,
+  restartRecording,
 }: VoiceChatMobileLayoutProps) {
   return (
     <div className="flex flex-col h-full">
@@ -200,6 +203,15 @@ export default function VoiceChatMobileLayout({
               ) : (
                 <VideoOff className="w-4 h-4" />
               )}
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={restartRecording}
+              disabled={!isUserSpeaking || isProcessing || isAISpeaking}
+              className="rounded-full w-10 h-10 text-gray-400 hover:text-white hover:bg-gray-700 disabled:opacity-50"
+            >
+              <RotateCcw className="w-4 h-4" />
             </Button>
             <Button
               variant="ghost"
